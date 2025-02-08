@@ -1,4 +1,4 @@
-name: Create YouTube Plus app my
+name: Create YouTube Plus app
 
 on:
   workflow_dispatch:
@@ -30,6 +30,12 @@ on:
 
       enable_demc:
         description: "Integrate DontEatMyContent"
+        type: boolean
+        required: true
+        default: true
+
+      enable_demc:
+        description: "Integrate iSponsorBlock"
         type: boolean
         required: true
         default: true
