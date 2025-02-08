@@ -180,6 +180,9 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 https://github.com/PoomSmart/YouPiP.git
+          cd YouPiP
+          git checkout 212839df9de8dcbd3fe36ea3128180ae0a2822db
+          cd ${{ github.workspace }}
 
       - name: Clone YTUHD
         if: ${{ inputs.enable_ytuhd }}
@@ -226,7 +229,6 @@ jobs:
         if: ${{ inputs.enable_youpip }}
         run: |
           cd ${{ github.workspace }}/YouPiP
-          git checkout 212839d
           make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ${{ github.workspace }}/youpip.deb
         env:
