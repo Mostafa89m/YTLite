@@ -138,12 +138,12 @@ jobs:
         id: download_youtube
         run: wget "${{ inputs.ipa_url }}" --no-verbose -O ${{ github.workspace }}/youtube.ipa
 
-      - name: Clone Open in YouTube (Safari extension)
+      - name: Clone Open in YouTube
         run: |
           git clone https://github.com/CokePokes/YoutubeExtensions/
           cd YoutubeExtensions
-          git checkout
-          mv *.appex ${{ github.workspace }}
+          mv OpenYoutubeSafariExtension.appex ${{ github.workspace }}
+          mv ShareServiceExtension.appex ${{ github.workspace }}
 
       - name: Clone YouTubeHeader
         run: |
@@ -294,6 +294,7 @@ jobs:
 
       - name: Inject tweaks into IPA
         run: |
+          ls -all
           tweaks="ytplus.deb OpenYoutubeSafariExtension.appex ShareServiceExtension.appex"
 
           for deb in youpip.deb ytuhd.deb ryd.deb ygs.deb yq.deb ytvo.deb demc.deb; do
