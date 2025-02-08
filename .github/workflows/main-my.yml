@@ -34,7 +34,7 @@ on:
         required: true
         default: true
 
-      enable_demc:
+      enable_isb:
         description: "Integrate iSponsorBlock"
         type: boolean
         required: true
@@ -230,7 +230,7 @@ jobs:
           git clone --quiet --depth=1 --recurse-submodules https://github.com/therealFoxster/DontEatMyContent.git
 
       - name: Clone iSponsorBlock
-        if: ${{ inputs.enable_demc }}
+        if: ${{ inputs.enable_isb }}
         run: |
           cd ${{ github.workspace }}
           git clone --quiet --depth=1 --recurse-submodules https://github.com/Galactic-Dev/iSponsorBlock.git
@@ -299,7 +299,7 @@ jobs:
           THEOS: ${{ github.workspace }}/theos
 
       - name: Build iSponsorBlock
-        if: ${{ inputs.enable_demc }}
+        if: ${{ inputs.enable_isb }}
         run: |
           cd ${{ github.workspace }}/iSponsorBlock
           make clean package DEBUG=0 FINALPACKAGE=1
