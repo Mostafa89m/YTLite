@@ -218,7 +218,7 @@ jobs:
       - name: Clone Alderis
         run: |
           cd ${{ github.workspace }}
-          git clone --recurse-submodules https://github.com/hbang/Alderis.git
+          git clone --recurse-submodules https://github.com/und3fined/Alderis.git
 
       - name: Clone iSponsorBlock
         run: |
