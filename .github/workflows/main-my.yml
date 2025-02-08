@@ -220,14 +220,6 @@ jobs:
           cd ${{ github.workspace }}
           git clone --recurse-submodules https://github.com/und3fined/Alderis.git
 
-      - name: Clone iSponsorBlock
-        run: |
-          cd ${{ github.workspace }}
-          git clone --recurse-submodules https://github.com/Galactic-Dev/iSponsorBlock.git
-          cd iSponsorBlock
-          git checkout 5c0dcc3df0eba9f1f9028e1183f41e5b6e9a6434
-          cd ${{ github.workspace }}
-
       - name: Build Alderis
         run: |
           cd ${{ github.workspace }}/Alderis
@@ -294,14 +286,6 @@ jobs:
         if: ${{ inputs.enable_demc }}
         run: |
           cd ${{ github.workspace }}/DontEatMyContent
-          make clean package DEBUG=0 FINALPACKAGE=1
-          mv packages/*.deb ${{ github.workspace }}/demc.deb
-        env:
-          THEOS: ${{ github.workspace }}/theos
-
-      - name: Build iSponsorBlock
-        run: |
-          cd ${{ github.workspace }}/iSponsorBlock
           make clean package DEBUG=0 FINALPACKAGE=1
           mv packages/*.deb ${{ github.workspace }}/demc.deb
         env:
